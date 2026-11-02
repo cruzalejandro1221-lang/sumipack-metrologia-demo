@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metrología y calibración de temperatura en Lima | Grupo Sumipack</title>
+<meta name="description" content="Calibración de termómetros y termohigrómetros de −23 a 90 °C, mapeo térmico, calificación de equipos, vehículos y embalajes, y mantenimiento preventivo. Grupo Sumipack, Lima.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#08617E">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --teal:#08617E; --teal-d:#054a60; --teal-2:#107799; --cyan:#00C2FF; --amber:#E9B11B; --amber-d:#cf9b10;
+  --ink:#16252d; --text:#434343; --mute:#6A6A6A; --line:#dbe6eb; --soft:#f1f6f8; --white:#fff;
+  --f:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%}
+body{font-family:var(--f);font-stretch:94%;font-size:17px;line-height:1.6;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.disp{font-weight:800;font-stretch:72%;text-transform:uppercase;line-height:.98;color:var(--teal-d);letter-spacing:0}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-2);margin-bottom:14px;display:block}
+
+/* barra superior + header */
+.util{background:var(--teal-d);color:#d4e6ee;font-size:13.5px}
+.util .wrap{display:flex;justify-content:space-between;gap:20px;padding:9px 0;flex-wrap:wrap}
+.util span,.util a{display:inline-flex;align-items:center;gap:8px}
+.util a:hover{color:#fff}
+.util svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;flex:none}
+.util .grp{display:flex;gap:26px;flex-wrap:wrap}
+header.nav{position:sticky;top:0;z-index:50;background:#fff;transition:box-shadow .3s}
+header.nav.sh{box-shadow:0 6px 24px -12px rgba(5,74,96,.35)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+.logo{display:block;width:124px;height:38px;background:url(img/logo.png) center/contain no-repeat}
+.links{display:flex;gap:34px;align-items:center}
+.links a{font-weight:600;font-stretch:85%;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);position:relative;padding:6px 0;transition:color .2s}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--teal-2);transition:right .3s var(--ease)}
+.links a:hover{color:var(--teal-2)}.links a:hover::after{right:0}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-stretch:85%;font-size:15px;letter-spacing:.06em;text-transform:uppercase;padding:14px 26px;border-radius:999px;transition:background .25s,color .25s,transform .25s var(--ease),box-shadow .25s}
+.btn.y{background:var(--amber);color:#2a2000}
+.btn.y:hover{background:var(--amber-d);transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(233,177,27,.8)}
+.btn.w{background:#fff;color:var(--teal-d)}
+.btn.w:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(0,0,0,.4)}
+.btn.o{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.btn.o:hover{background:#fff;color:var(--teal-d)}
+.btn.sm{padding:11px 22px;font-size:14px}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:10px;place-items:center}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:100%;height:2px;background:var(--ink)}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.drawer{position:fixed;inset:0;z-index:80;background:#fff;padding:20px 24px;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .45s var(--ease);visibility:hidden}
+.drawer.open{transform:none;visibility:visible}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.drawer nav a{display:block;font-weight:800;font-stretch:72%;font-size:2.6rem;text-transform:uppercase;color:var(--teal-d);padding:12px 0;border-bottom:1px solid var(--line)}
+.drawer .btn{margin-top:auto;justify-content:center}
+
+/* hero */
+.hero{position:relative;background:linear-gradient(112deg,var(--teal-d) 0%,var(--teal) 58%,var(--teal-2) 100%);color:#fff;overflow:hidden}
+.hero-img{position:absolute;top:0;right:0;bottom:0;width:48%;clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);overflow:hidden}
+.hero-img i{position:absolute;inset:0;background:url(img/hero.jpg) center/cover;animation:zoom 24s ease-in-out infinite alternate}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,97,126,.55),rgba(8,97,126,.05) 60%)}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero-in{position:relative;padding:92px 0 136px;max-width:640px}
+.hero .eyebrow{color:#9fe3ff}
+h1{font-weight:800;font-stretch:70%;text-transform:uppercase;line-height:.95;font-size:clamp(3rem,6.2vw,5.6rem);color:#fff}
+h1 em{font-style:normal;color:#9fe3ff}
+.hero p.sub{margin-top:26px;font-size:clamp(1.05rem,1.4vw,1.25rem);color:#dcecf2;max-width:540px}
+.hero .cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-tags{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap}
+.hero-tags span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:7px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#e9f6fb}
+.stats{position:relative;z-index:3;margin-top:-62px}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:14px;box-shadow:0 24px 60px -24px rgba(5,74,96,.45)}
+.st{padding:28px 30px;position:relative}
+.st+.st{border-left:1px solid var(--line)}
+.st b{display:block;font-weight:800;font-stretch:70%;font-size:2.9rem;line-height:1;color:var(--teal);letter-spacing:0}
+.st b small{font-size:.5em;margin-left:3px;color:var(--teal-2)}
+.st>span{display:block;margin-top:8px;font-size:.92rem;color:var(--mute);line-height:1.35}
+
+/* secciones */
+.sec{padding:96px 0}
+.sec-head{max-width:700px;margin-bottom:12px}
+h2{font-size:clamp(2.3rem,4.6vw,3.9rem)}
+.lead{margin-top:16px;font-size:1.1rem;color:var(--mute)}
+.fam{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start;padding:64px 0;border-top:1px solid var(--line)}
+.fam:first-of-type{margin-top:36px}
+.fam.rev .fam-media{order:2}
+.fam-media{position:sticky;top:108px}
+.fam-media .ph{aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--soft);position:relative}
+.fam-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.fam:hover .fam-media img{transform:scale(1.04)}
+.fam-media .lab{margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--mute)}
+.fam h3{font-weight:800;font-stretch:72%;text-transform:uppercase;font-size:clamp(2rem,3.4vw,2.8rem);line-height:1;color:var(--teal-d)}
+.fam .intro{margin:14px 0 24px;color:var(--mute);max-width:560px}
+.svc{display:grid;grid-template-columns:1fr auto;gap:6px 24px;align-items:start;padding:20px 12px 20px 0;border-top:1px solid var(--line);transition:background .25s,padding .3s var(--ease)}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc:hover{background:var(--soft);padding-left:14px}
+.svc h4{font-weight:800;font-stretch:75%;font-size:1.4rem;text-transform:uppercase;line-height:1.1;color:var(--ink)}
+.svc .ft{font-family:var(--mono);font-size:11px;color:var(--teal-2);letter-spacing:.08em;margin-left:10px;font-weight:500;vertical-align:middle}
+.svc p{grid-column:1;font-size:.97rem;color:var(--mute)}
+.tags{grid-column:1;display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.tags span{font-family:var(--mono);font-size:11.5px;padding:4px 10px;border-radius:999px;background:#e6f1f5;color:var(--teal-d)}
+.svc .go{grid-column:2;grid-row:1/span 3;align-self:center;font-weight:700;font-stretch:85%;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);white-space:nowrap;display:flex;gap:8px;align-items:center}
+.svc .go b{font-weight:400;transition:transform .3s var(--ease)}
+.svc:hover .go b{transform:translateX(5px)}
+
+/* banda trazabilidad */
+.band{background:var(--soft);border-block:1px solid var(--line)}
+.band-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.who{margin-top:30px}
+.who .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:7px 14px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:.92rem;color:var(--ink)}
+.checks{display:grid;gap:0}
+.check{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.check:last-child{border-bottom:1px solid var(--line)}
+.check svg{width:30px;height:30px;stroke:var(--teal);fill:none;stroke-width:1.6;margin-top:2px}
+.check h4{font-weight:800;font-stretch:75%;font-size:1.3rem;text-transform:uppercase;color:var(--ink);line-height:1.1}
+.check p{color:var(--mute);font-size:.96rem;margin-top:4px}
+
+/* proceso */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:48px;position:relative}
+.steps::before{content:"";position:absolute;left:24px;right:24px;top:24px;height:2px;background:var(--line)}
+.step{position:relative}
+.step .n{position:relative;width:50px;height:50px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800;font-stretch:80%;font-size:1.3rem;box-shadow:0 0 0 8px #fff}
+.step h4{margin-top:20px;font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:1.35rem;line-height:1.1;color:var(--ink)}
+.step p{margin-top:8px;color:var(--mute);font-size:.96rem}
+
+/* más soluciones */
+.more{background:var(--teal-d);color:#fff}
+.more h2{color:#fff}
+.more .eyebrow{color:#9fe3ff}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.tile{display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-height:190px;padding:28px;border:1px solid rgba(255,255,255,.2);border-radius:12px;transition:background .3s,transform .4s var(--ease),border-color .3s}
+.tile:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5);transform:translateY(-4px)}
+.tile h4{font-weight:800;font-stretch:75%;font-size:1.7rem;text-transform:uppercase;line-height:1.05}
+.tile p{margin-top:8px;color:#bcd9e4;font-size:.95rem}
+.tile .arrow{font-weight:700;font-stretch:85%;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#9fe3ff}
+
+/* contacto */
+.c-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.info{margin-top:32px}
+.info a,.info div{display:block;padding:16px 0;border-top:1px solid var(--line)}
+.info>*:last-child{border-bottom:1px solid var(--line)}
+.info .l{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.info b{font-weight:700;font-size:1.15rem;color:var(--ink)}
+.info a:hover b{color:var(--teal)}
+form{background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px;box-shadow:0 24px 60px -34px rgba(5,74,96,.35)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fld{display:flex;flex-direction:column;gap:7px}.fld.full{grid-column:1/-1}
+.fld label{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.fld input,.fld select,.fld textarea{font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:1px solid #c5d5dc;border-radius:8px;padding:13px 14px;width:100%;outline:0;transition:border-color .2s,box-shadow .2s}
+.fld select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#555 50%),linear-gradient(135deg,#555 50%,transparent 50%);background-position:calc(100% - 20px) 55%,calc(100% - 14px) 55%;background-size:6px 6px;background-repeat:no-repeat}
+.fld textarea{resize:vertical;min-height:100px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--teal-2);box-shadow:0 0 0 3px rgba(16,119,153,.18)}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:20px 0 24px;font-size:.88rem;color:var(--mute)}
+.consent input{margin-top:4px;accent-color:var(--teal);width:16px;height:16px;flex:none}
+.consent a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.f-note{margin-top:14px;font-size:.88rem;color:var(--mute)}
+.f-note a{color:var(--teal);font-weight:700;text-decoration:underline}
+
+footer{background:var(--teal-d);color:#bcd9e4;padding:56px 0 90px}
+.f-top{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.15)}
+.f-top .chip{background:#fff;border-radius:10px;padding:6px 12px}
+.f-top .logo{width:112px;height:34px}
+.f-links{display:flex;gap:24px;flex-wrap:wrap;font-size:.92rem}
+.f-links a:hover{color:#fff}
+.f-bot{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.86rem;color:#8fb7c7}
+.wa{position:fixed;right:22px;bottom:22px;z-index:40;display:flex;align-items:center;gap:10px;background:#25d366;color:#04230f;font-weight:700;font-stretch:85%;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:14px 20px 14px 16px;border-radius:999px;box-shadow:0 12px 34px -8px rgba(37,211,102,.6);transition:transform .3s var(--ease)}
+.wa:hover{transform:translateY(-3px)}
+.wa svg{width:22px;height:22px;fill:currentColor}
+
+.js .rv{opacity:0}
+.js .rv.in{opacity:1;animation:rv .9s var(--ease) var(--d,0s) backwards}
+@keyframes rv{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+@media (max-width:1060px){
+  .links,.nav .btn{display:none}.burger{display:grid}
+  .hero-img{position:relative;width:100%;height:260px;clip-path:none;order:2}
+  .hero{display:flex;flex-direction:column}
+  .hero-in{padding:60px 0 56px;max-width:none}
+  .stats{margin-top:0;background:var(--soft)}
+  .stats .wrap{width:100%}.stats-in{border-radius:0;box-shadow:none}
+  .stats-in{grid-template-columns:repeat(2,1fr)}
+  .st:nth-child(3){border-left:0}.st:nth-child(n+3){border-top:1px solid var(--line)}
+  .fam,.fam.rev{grid-template-columns:1fr;gap:28px}.fam.rev .fam-media{order:0}.fam-media{position:static}
+  .band-grid,.c-grid{grid-template-columns:1fr;gap:44px}
+  .steps{grid-template-columns:repeat(2,1fr);row-gap:40px}.steps::before{display:none}
+  .tiles{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .util .grp:last-child{display:none}
+  .nav-in{height:68px}.logo{width:108px;height:33px}
+  .sec{padding:64px 0}
+  .st{padding:22px 18px}.st b{font-size:2.3rem}
+  .svc{grid-template-columns:1fr}.svc .go{grid-column:1;grid-row:auto;margin-top:8px}
+  .steps{grid-template-columns:1fr}
+  form{padding:22px 18px}.fgrid{grid-template-columns:1fr}
+  .wa span{display:none}.wa{padding:15px}
+  .hero-img{height:210px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <div class="grp">
+      <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg>Av. Santiago Antúnez de Mayolo, Villa María del Triunfo, Lima</span>
+    </div>
+    <div class="grp">
+      <a href="https://wa.me/51938391910" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>938 391 910</a>
+      <a href="mailto:informes@gruposumipack.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>informes@gruposumipack.com</a>
+    </div>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" aria-label="Grupo Sumipack, inicio"><span class="logo" role="img" aria-label="Grupo Sumipack"></span></a>
+    <nav class="links" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#trazabilidad">Trazabilidad</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn y sm" href="#contacto">Solicitar cotización →</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top"><span class="logo" role="img" aria-label="Grupo Sumipack"></span><button class="burger" id="drawer-x" aria-label="Cerrar menú" style="display:grid;font-size:1.6rem">×</button></div>
+  <nav><a href="#servicios">Servicios</a><a href="#trazabilidad">Trazabilidad</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></nav>
+  <a class="btn y" href="#contacto">Solicitar cotización →</a>
+</div>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-img" aria-hidden="true"><i></i></div>
+  <div class="wrap">
+    <div class="hero-in">
+      <span class="eyebrow">Metrología · Grupo Sumipack</span>
+      <h1>Calibración y calificación para la <em>cadena de frío</em></h1>
+      <p class="sub">Calibramos termómetros y termohigrómetros de −23 a 90 °C, mapeamos almacenes y calificamos equipos, vehículos y embalajes, con certificado y trazabilidad.</p>
+      <div class="cta">
+        <a class="btn y" href="#contacto">Solicitar cotización →</a>
+        <a class="btn o" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="hero-tags"><span>Calibración</span><span>Mapeo térmico</span><span>Calificaciones</span><span>Mantenimiento</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-in">
+      <div class="st"><b><span data-count="12">12</span></b><span>servicios de metrología para la cadena de frío</span></div>
+      <div class="st"><b><span data-count="23" data-prefix="−">−23</span><small>a</small><span data-count="90">90</span><small>°C</small></b><span>rango de calibración de temperatura</span></div>
+      <div class="st"><b><span data-count="0.024" data-dec="3" data-prefix="±">±0.024</span><small>°C</small></b><span>incertidumbre desde, según el instrumento</span></div>
+      <div class="st"><b><span data-count="3">3</span><small>días</small></b><span>hábiles de entrega desde, con certificado y etiqueta</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Nuestros servicios</span>
+      <h2 class="disp">Todo lo que tu cadena de frío necesita medir</h2>
+      <p class="lead">Del instrumento de mano al almacén completo: calibramos, mapeamos, calificamos y damos mantenimiento.</p>
+    </div>
+
+    <article class="fam" id="calibracion">
+      <div class="fam-media rv"><div class="ph"><img src="img/calibracion.jpg" alt="Técnico de laboratorio trabajando con instrumentos de medición" loading="lazy"></div><p class="lab">LABORATORIO DE TEMPERATURA Y HUMEDAD</p></div>
+      <div>
+        <div class="rv"><h3>Calibración de instrumentos</h3>
+        <p class="intro">Laboratorio de Temperatura y Humedad con condiciones ambientales adecuadas. Rango de −23 a 90 °C, con equipos trazables a patrones nacionales.</p></div>
+        <div id="list-cal"></div>
+      </div>
+    </article>
+
+    <article class="fam rev" id="calificacion">
+      <div class="fam-media rv"><div class="ph"><img src="img/mapeo.jpg" alt="Personal de Sumipack en un almacén refrigerado" loading="lazy"></div><p class="lab">ALMACENES · CÁMARAS · VEHÍCULOS · EMBALAJES</p></div>
+      <div>
+        <div class="rv"><h3>Mapeo térmico y calificaciones</h3>
+        <p class="intro">Verificamos que tus instalaciones, equipos, vehículos y embalajes mantengan la temperatura requerida, bajo las exigencias del ente regulador DIGEMID.</p></div>
+        <div id="list-qual"></div>
+      </div>
+    </article>
+
+    <article class="fam" id="mantenimiento">
+      <div class="fam-media rv"><div class="ph"><img src="img/mantenimiento.jpg" alt="Técnico revisando una cámara ambiental" loading="lazy"></div><p class="lab">EQUIPOS DE TEMPERATURA</p></div>
+      <div>
+        <div class="rv"><h3>Mantenimiento y asesoría</h3>
+        <p class="intro">Reduce el riesgo de daño o pérdida de tus equipos con un programa preventivo hecho a tu medida.</p></div>
+        <div id="list-mant"></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec band" id="trazabilidad">
+  <div class="wrap band-grid">
+    <div class="rv">
+      <span class="eyebrow">Trazabilidad y normativa</span>
+      <h2 class="disp">Resultados que se sostienen en una auditoría</h2>
+      <p class="lead">Cada servicio termina en un documento (certificado, etiqueta o informe) y se apoya en patrones de referencia, para que tus registros respondan ante el regulador y ante tus clientes.</p>
+      <div class="who">
+        <span class="lbl">A quién atendemos</span>
+        <div class="chips"><span>Droguerías</span><span>Almacenes especializados y aduaneros</span><span>Productos farmacéuticos</span><span>Dispositivos médicos y sanitarios</span><span>Químicos y veterinarios</span><span>Plantas de producción</span><span>Cámaras de refrigeración</span></div>
+      </div>
+    </div>
+    <div class="checks">
+      <div class="check rv"><svg viewBox="0 0 32 32"><path d="M16 3l11 4v8c0 7-5 11-11 14C10 26 5 22 5 15V7z"/><path d="M11 16l4 4 7-8"/></svg><div><h4>Trazabilidad INACAL-DM</h4><p>Las calibraciones de temperatura se respaldan en patrones trazables a la cadena de medición nacional.</p></div></div>
+      <div class="check rv" style="--d:.06s"><svg viewBox="0 0 32 32"><path d="M12.500 17.200V6a3.500 3.500 0 017 0v11.200a6 6 0 11-7 0z"/><path d="M16 12v11"/></svg><div><h4>Patrones de referencia</h4><p>Termómetro digital con sonda Pt100, higrómetro digital y termopares tipo T.</p></div></div>
+      <div class="check rv" style="--d:.12s"><svg viewBox="0 0 32 32"><path d="M7 3h13l6 6v20H7z"/><path d="M20 3v6h6M11 16h10M11 21h10M11 26h6"/></svg><div><h4>Certificado y etiqueta</h4><p>Cada instrumento calibrado vuelve con su certificado de calibración y su etiqueta.</p></div></div>
+      <div class="check rv" style="--d:.18s"><svg viewBox="0 0 32 32"><path d="M5 6h22v20H5z"/><path d="M5 12h22M11 18h10M11 22h6"/></svg><div><h4>Marco normativo</h4><p>El mapeo térmico se apoya en la R.M. 132-2015-MINSA y en el Manual de Buenas Prácticas de Almacenamiento (BPA-DIGEMID).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="proceso">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2 class="disp">Cuatro pasos, sin vueltas</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="n">1</div><h4>Cotiza</h4><p>Cuéntanos qué necesitas calibrar o calificar. Te respondemos por WhatsApp o correo.</p></div>
+      <div class="step rv" style="--d:.07s"><div class="n">2</div><h4>Coordinamos</h4><p>Definimos equipos, rango de trabajo y fecha de atención.</p></div>
+      <div class="step rv" style="--d:.14s"><div class="n">3</div><h4>Medimos contra patrón</h4><p>Comparamos con patrones calibrados, en laboratorio o en tus instalaciones según el servicio.</p></div>
+      <div class="step rv" style="--d:.21s"><div class="n">4</div><h4>Recibes tus documentos</h4><p>Certificado, etiqueta o informe, según el servicio contratado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec more" id="mas">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Grupo Sumipack</span>
+      <h2 class="disp">Más soluciones en cadena de frío</h2>
+    </div>
+    <div class="tiles">
+      <a class="tile rv" href="https://gruposumipack.com/productos-cadena-frio-peru/" target="_blank" rel="noopener"><div><h4>Productos</h4><p>Geles refrigerantes, acumuladores, indicadores y registradores de temperatura.</p></div><span class="arrow">Ver productos ↗</span></a>
+      <a class="tile rv" style="--d:.07s" href="https://gruposumipack.com/cadena-frio/embalaje-pre-calificado/" target="_blank" rel="noopener"><div><h4>Embalaje pre-calificado</h4><p>Embalajes isotérmicos con desempeño térmico verificado.</p></div><span class="arrow">Ver embalajes ↗</span></a>
+      <a class="tile rv" style="--d:.14s" href="https://gruposumipack.com/almacenamiento-frio/transporte-refrigerado-sumipack-cargo-cadena-de-frio-logistica-camion-termo-king/" target="_blank" rel="noopener"><div><h4>Sumipack Cargo</h4><p>Transporte refrigerado y seco.</p></div><span class="arrow">Ver transporte ↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contacto">
+  <div class="wrap c-grid">
+    <div class="rv">
+      <span class="eyebrow">Cotización</span>
+      <h2 class="disp">Hablemos de tus equipos</h2>
+      <p class="lead">Cuéntanos qué necesitas. Te respondemos con alcance, plazo y valor del servicio.</p>
+      <div class="info">
+        <a href="https://wa.me/51938391910" target="_blank" rel="noopener"><span class="l">WhatsApp</span><b>938 391 910</b></a>
+        <a href="https://wa.me/51985621195" target="_blank" rel="noopener"><span class="l">WhatsApp</span><b>985 621 195</b></a>
+        <a href="mailto:informes@gruposumipack.com"><span class="l">Correo</span><b>informes@gruposumipack.com</b></a>
+        <div><span class="l">Ubicación</span><b>Villa María del Triunfo, Lima</b></div>
+      </div>
+    </div>
+    <form id="quote" class="rv" novalidate>
+      <div class="fgrid">
+        <div class="fld"><label for="f-name">Nombre</label><input id="f-name" autocomplete="name" required></div>
+        <div class="fld"><label for="f-co">Empresa</label><input id="f-co" autocomplete="organization" required></div>
+        <div class="fld"><label for="f-svc">Servicio</label><select id="f-svc"></select></div>
+        <div class="fld"><label for="f-qty">Cantidad de equipos</label><input id="f-qty" inputmode="numeric" placeholder="Ej. 5"></div>
+        <div class="fld full"><label for="f-msg">Mensaje</label><textarea id="f-msg" placeholder="Marca, modelo, rango de uso, ubicación…"></textarea></div>
+      </div>
+      <label class="consent"><input type="checkbox" id="f-ok"><span>Acepto el tratamiento de mis datos personales para atender esta solicitud, según la <a href="#" onclick="return false">Política de Privacidad</a> (Ley N.° 29733).</span></label>
+      <button class="btn y" type="submit" style="width:100%;justify-content:center">Enviar por WhatsApp →</button>
+      <p class="f-note" id="f-note">Se abrirá WhatsApp con tu solicitud ya redactada.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <span class="chip"><span class="logo" role="img" aria-label="Grupo Sumipack" style="display:block"></span></span>
+      <div class="f-links">
+        <a href="https://gruposumipack.com/" target="_blank" rel="noopener">gruposumipack.com ↗</a>
+        <a href="https://www.instagram.com/gruposumipack_peru/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="#" onclick="return false">Política de privacidad</a>
+        <a href="#" onclick="return false">Cookies</a>
+        <a href="#" onclick="return false">Términos y condiciones</a>
+        <a href="#" onclick="return false">Libro de Reclamaciones</a>
+      </div>
+    </div>
+    <div class="f-bot"><span>© 2026 Grupo Sumipack — Soluciones en Cadena de Frío S.A.C.</span><span>Av. Santiago Antúnez de Mayolo, Villa María del Triunfo, Lima · Perú</span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/51938391910?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20metrolog%C3%ADa" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.7.63.72.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.8 11.8 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41z"/></svg><span>Cotizar</span></a>
+
+<script>
+(function(){
+'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const WA='51938391910',wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+
+const SVC={
+ cal:[
+  {n:'Termohigrómetros digitales',ft:'FT-045',d:'Temperatura y humedad relativa de ambientes y equipos.',t:['−23 a 90 °C','20–90 %HR','7 días hábiles']},
+  {n:'Termómetros digitales y registradores',ft:'FT-044',d:'Termómetros digitales y registradores de temperatura.',t:['−23 a 80 °C','máx. 0.04 °C','3 días hábiles']},
+  {n:'Termómetros analógicos',ft:'FT-046',d:'Termómetros de esfera y analógicos.',t:['−23 a 90 °C','3 días hábiles']},
+  {n:'Termómetros de líquido en vidrio',ft:'FT-048',d:'Termómetros de columna de líquido en vidrio.',t:['0 a 90 °C','3 días hábiles']},
+  {n:'Termómetros ambientales',ft:'FT-047',d:'Medición de temperatura interior y exterior.',t:['Ext. −23 a 80 °C','Int. 10 a 40 °C','3 días hábiles']},
+  {n:'Termómetros tipo T',d:'Termómetros con termopar tipo T.',t:['Consulta rango y plazo']},
+  {n:'Medios isotermos',ft:'FT-049',d:'Cajas, contenedores y medios isotermos.',t:['−23 a 90 °C','0.13 °C','3 días hábiles']}
+ ],
+ qual:[
+  {n:'Mapeo térmico',ft:'FT-038',d:'Perfil de temperatura y humedad de almacenes, cámaras y plantas, con sensores registradores contrastados con patrones calibrados. Detecta los puntos críticos.',t:['R.M. 132-2015-MINSA','BPA-DIGEMID']},
+  {n:'Calificación de equipos',ft:'FT-040',d:'Freezers, conservadoras, congeladores, cámaras ambientales y cámaras de refrigeración.',t:['Exigencia DIGEMID']},
+  {n:'Calificación de vehículos',d:'Vehículos refrigerados, con patrones calibrados ubicados en puntos estratégicos de la caja.',t:['Transporte y distribución']},
+  {n:'Calificación de embalajes',ft:'FT-039',d:'Tres etapas: diseño, operacional y desempeño, esta última con tus propios embalajes y tu proceso real de transporte. Incluye informe completo.',t:['Diseño','Operacional','Desempeño']}
+ ],
+ mant:[
+  {n:'Mantenimiento preventivo',d:'Mantenimiento y ajuste de equipos de temperatura, con programa preventivo y asesoría técnica para el uso de termohigrómetros, termómetros digitales y registradores.',t:['Programa a medida']}
+ ]
+};
+function row(s){
+  const el=document.createElement('div');el.className='svc rv';
+  el.innerHTML=`<h4>${s.n}${s.ft?`<span class="ft">${s.ft}</span>`:''}</h4><p>${s.d}</p><div class="tags">${s.t.map(x=>`<span>${x}</span>`).join('')}</div><a class="go" href="${wa('Hola, quiero cotizar: '+s.n)}" target="_blank" rel="noopener">Cotizar <b>→</b></a>`;
+  return el;
+}
+[['cal','#list-cal'],['qual','#list-qual'],['mant','#list-mant']].forEach(([k,id])=>SVC[k].forEach(s=>$(id).appendChild(row(s))));
+const fsvc=$('#f-svc');
+[...SVC.cal,...SVC.qual,...SVC.mant].map(s=>s.n).concat('Otro / no estoy seguro').forEach(n=>{const o=document.createElement('option');o.textContent=n;fsvc.appendChild(o)});
+
+$('#quote').addEventListener('submit',e=>{
+  e.preventDefault();
+  const note=$('#f-note'),v=id=>$(id).value.trim();
+  if(!v('#f-name')||!v('#f-co')){note.textContent='Completa tu nombre y empresa.';note.style.color='#b45309';return;}
+  if(!$('#f-ok').checked){note.textContent='Para continuar, acepta el tratamiento de datos personales.';note.style.color='#b45309';return;}
+  const t=`Hola, soy ${v('#f-name')} de ${v('#f-co')}.\nQuiero cotizar: ${v('#f-svc')}.`+(v('#f-qty')?`\nCantidad de equipos: ${v('#f-qty')}.`:'')+(v('#f-msg')?`\n${v('#f-msg')}`:'');
+  note.style.color='';
+  note.innerHTML='Tu solicitud está lista. <a href="'+wa(t)+'" target="_blank" rel="noopener">Abrir WhatsApp →</a>';
+  try{window.open(wa(t),'_blank','noopener')}catch(_){}
+});
+
+const nav=$('#nav');
+const sc=()=>nav.classList.toggle('sh',scrollY>8);addEventListener('scroll',sc,{passive:true});sc();
+const drawer=$('#drawer'),burger=$('#burger');
+const dset=o=>{drawer.classList.toggle('open',o);drawer.setAttribute('aria-hidden',!o);burger.setAttribute('aria-expanded',o);document.body.classList.toggle('lock',o)};
+burger.addEventListener('click',()=>dset(true));$('#drawer-x').addEventListener('click',()=>dset(false));
+$$('#drawer a').forEach(a=>a.addEventListener('click',()=>dset(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape')dset(false)});
+
+/* contadores */
+const cs=$$('[data-count]');
+if(!reduce)cs.forEach(el=>{el.textContent=(el.dataset.prefix||'')+(0).toFixed(+el.dataset.dec||0)});
+const runC=el=>{
+  const end=parseFloat(el.dataset.count),dec=+el.dataset.dec||0,pre=el.dataset.prefix||'';
+  if(reduce){el.textContent=pre+end.toFixed(dec);return}
+  const s=performance.now();
+  (function f(n){const k=Math.min((n-s)/1500,1),e=k===1?1:1-Math.pow(2,-10*k);el.textContent=pre+(end*e).toFixed(dec);if(k<1)requestAnimationFrame(f)})(s);
+};
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){runC(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+cs.forEach(e=>cio.observe(e));
+
+/* reveal */
+const rv=$$('.rv');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+  rv.forEach(e=>io.observe(e));
+}else rv.forEach(e=>e.classList.add('in'));
+})();
+</script>
+</body>
+</html>
